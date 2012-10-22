@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>GDocs2Web - Beautiful Listings from Google Spreadsheets - from the Open Knowledge Foundation Labs - OKFNLabs</title>
+  <title>Listify - Beautiful Listings from Google Spreadsheets - from the Open Knowledge Foundation Labs - OKFNLabs</title>
   <meta name="description" content="">
   <meta name="author" content="Open Knowledge Foundation">
 
@@ -11,8 +11,9 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="../referencedata/vendor/bootstrap/2.1.1/bootstrap-combined.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
 </head>
 <body>
@@ -22,9 +23,10 @@
       <a class="nav-logo pull-left" href="http://okfn.org/" title="An Open Knowledge Foundation Project">
         <img src="http://assets.okfn.org/p/okfn/img/logo_28x30.png" alt="Open Knowledge Foundation logo" />
       </a>
-      <a class="brand" href="#">OKFNLabs GDocs2Web</a>
+      <a class="brand" href="#">OKFNLabs Listify</a>
       <ul class="nav">
         <li><a href="#">Home</a></li>
+        <li><a href="demo.html">Demo</a></li>
       </ul>
       <ul class="nav pull-right">
         <li><a href="http://github.com/okfn/gdocs2web">Repo</a></li>
@@ -36,17 +38,47 @@
 <div class="container">
 <div class="content">
   <div class="page-header">
-    <h1>GDocs2Web
-      <small>Take a Google Doc spreadsheet and turn it into a beautiful, searchable listing
-        on your website - embed in seconds into Wordpress, simple HTML etc</small>
+    <h1>Listify
+      <small>Take a Google spreadsheet and turn it into a beautiful, searchable listing
+        on your website - embed in seconds into Wordpress, HTML etc</small>
       </h1>
   </div>
 
-  <div class="row">
-    <div class="span12">
-      <h3><a href="demo.html">Check out the demo</a></h3>
-    </div>
-  </div>
+  <h3>1. Create a Spreadsheet</h3>
+  <p>Create a google spreadsheet. We propose using <a href="">this
+    template</a> but you can create your own &ndash; the key feature is a
+  <strong>single header row</strong> at the very top of the sheet.</p>
+  <p>You also must <strong>publish your spreadsheet</strong> (File menu then
+  Publish to the Web).</p>
+
+  <h3>2. Embed Listify in your Website</h3>
+  <form class="">
+    <label for="gdocs-url">Paste your spreadsheet url here</label>
+    <input type="text" name="gdocs-url" class="gdocs-url" placeholder="https://docs.google.com/..." />
+  </form>
+  <p>Then copy and paste the following piece of HTML in your webpage</p>
+  <textarea class="copy-this"></textarea>
+  
+
+  <h3>3. Customize &ndash; optional</h3>
+  <p>You can customize the template
+
+
+  <footer>
+    <p>
+      This service is run by the <a href="http://okfn.org">Open
+        Knowledge Foundation</a>
+      &ndash;
+      <a href="http://github.com/okfn/listify">Source Code</a>
+      &ndash;
+      <a href="http://opendefinition.org/ossd/" title="Open Online Software Service">
+        <img src="http://assets.okfn.org/images/ok_buttons/os_80x15_orange_grey.png" alt="" border="" />
+      </a>
+    </p>
+  </footer>
+
+</div><!-- /content -->
+</div><!-- /container -->
 </body>
 </html>
 

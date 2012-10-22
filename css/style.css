@@ -32,22 +32,15 @@ footer {
   margin-right: 8px;
 }
 
-form.license-filter {
-  float: right;
-  display: inline;
+/*************************************************
+  * Home page
+  ************************************************/
+
+.copy-this {
+  width: 80%;
+  height: 200px;
 }
 
-.license-list {
-  margin-top: 20px;
-  clear: both;
+.gdocs-url {
+  width: 80%;
 }
-
-.license .icons {
-  float: right;
-  display: inline;
-}
-
-.license .icons .open-icon {
-  padding-right: 3px;
-}
-
