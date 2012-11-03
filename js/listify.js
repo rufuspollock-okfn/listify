@@ -1,38 +1,53 @@
 // Listify module
-var Listify = function($) {
+var Listify = {};
 
-var my = {};
+(function($) {
 
-my.show = function(url) {
+Listify.show = function(url) {
   var $el = $('.page.view');
   switchView('view');
-  recline.Backend.GDocs.fetch({url: url}).done(function(data) {
-    // var results = _.map(data.records, my.renderGeneric).join('\n');
-    var results = Mustache.render(templates['books'], {
-      records: data.records
-    });
-    var html = Mustache.render(my.template, {
-      results: results,
-      total: data.records.length
-    });
-    $el.html(html);
+  var app = new Listify.App({
+    url: url,
+    el: $el
   });
+};
 
+Listify.App = function(options) {
+
+var my = {
+  options: options,
+  dataStore: null
+};
+my.$el = $(options.el);
+
+my.initialize = function($el) {
+  my.$el.html(my.template);
+  recline.Backend.GDocs.fetch({url: my.options.url}).done(function(data) {
+    my.metadata = data.metadata;
+    my.dataStore = data;
+    my.render();
+  });
+};
+
+my.render = function() {
+  var results = Mustache.render(templates['books'], {
+    records: my.dataStore.records
+  });
+  my.$el.find('.results').html(results);
+  my.$el.find('.total span').text(my.dataStore.records.length);
 };
 
 my.template = ' \
   <div class="listify"> \
     <div class="controls"> \
-      <div class="query-here"></div> \
-    </div> \
-    <div class="total"><span>{{total}}</span> records found</div> \
-    <div class="body"> \
-      <div class="sidebar"></div> \
-      <div class="results"> \
-        {{{results}}} \
+      <div class="query"> \
+        <input type="text" name="q" value="" /> \
       </div> \
     </div> \
-    <div style="clear: both;"></div> \
+    <div class="total"><span></span> records found</div> \
+    <div class="body"> \
+      <div class="results"></div> \
+    </div> \
   </div> \
 ';
 
@@ -70,8 +85,11 @@ var templates = {
    '
 }
 
+my.initialize();
 return my;
 
-}(jQuery);
+}
+
+}(jQuery));
 
 
