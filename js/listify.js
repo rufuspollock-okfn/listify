@@ -21,17 +21,19 @@ my.show = function(url) {
 };
 
 my.template = ' \
-  <div class="controls"> \
-    <div class="query-here"></div> \
-  </div> \
-  <div class="total"><h2><span>{{total}}</span> records found</h2></div> \
-  <div class="body"> \
-    <div class="sidebar"></div> \
-    <div class="results"> \
-      {{{results}}} \
+  <div class="listify"> \
+    <div class="controls"> \
+      <div class="query-here"></div> \
     </div> \
+    <div class="total"><span>{{total}}</span> records found</div> \
+    <div class="body"> \
+      <div class="sidebar"></div> \
+      <div class="results"> \
+        {{{results}}} \
+      </div> \
+    </div> \
+    <div style="clear: both;"></div> \
   </div> \
-  <div style="clear: both;"></div> \
 ';
 
 my.renderGeneric = function(record) {
@@ -53,11 +55,10 @@ my.renderGeneric = function(record) {
 
 var templates = {
   books: ' \
-    <div class="row"> \
+    <div class="row booky"> \
     {{#records}}  \
-     <div class="span4 booksection"> \
-      <div id="cover" style="background:black url(\'{{imageurl}}\') no-repeat center;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;"> \
-      </div> \
+     <div class="span5 record"> \
+      <div class="cover" style="background: url(\'{{imageurl}}\') no-repeat center;"></div> \
       <h2>{{title}}</h2> \
       <h3><a href="{{authorurl}}" target="_blank">{{author}}</a></h3> \
       <p class="level">{{type}}</p> \

@@ -28,7 +28,7 @@ footer {
 }
 
 .nav-logo img {
-  margin-top: 4px;
+  margin-top: 5px;
   margin-right: 8px;
 }
 
@@ -46,26 +46,61 @@ footer {
 }
 
 /*************************************************
+  * Listify
+  ************************************************/
+
+.record {
+  border-bottom: #eee 1px solid;
+  padding: 5px;
+}
+
+/*************************************************
   * Demo
   ************************************************/
 
-.booksection {
+.booky .record {
   margin-bottom: 30px;
 }
-.booksection #cover {
+.booky .record .cover {
   float: left;
   position: relative;
-  width: 140px;
+  width: 150px;
   height: 184px;
   margin-right: 20px;
   outline: 3px solid white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
-.booksection p.description {
+.booky .record p.description {
   height: 70px;
   padding-bottom: 18px;
   overflow: hidden;
+  font-size: 85%;
 }
-.booksection p.level {
+.booky .record p.level {
   color: grey;
+}
+
+.booky h2,
+.booky h4 {
+  text-transform: uppercase;
+  font: bold 16px 'PT Sans Narrow', Helvetica, Arial, sans-serif;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.booky h3 {
+  line-height: 13px;
+}
+.booky h3 a {
+  text-decoration: underline;
+  font: normal 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #cfb798;
+}
+.booky h3 a:hover,
+.booky h3 a:active {
+  color: #cfb798;
 }
 
