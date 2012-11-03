@@ -13,7 +13,6 @@
 
   <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
   <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
-  <link href="../referencedata/vendor/bootstrap/2.1.1/bootstrap-combined.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
 </head>
 <body>
@@ -26,7 +25,7 @@
       <a class="brand" href="#">OKFNLabs Listify</a>
       <ul class="nav">
         <li><a href="#">Home</a></li>
-        <li><a href="demo.html">Demo</a></li>
+        <li><a href="?url=https://docs.google.com/spreadsheet/ccc?key=0Aon3JiuouxLUdFRBbUYxR3B6UDhLZEplN0VPQzNqN0E">Demo</a></li>
       </ul>
       <ul class="nav pull-right">
         <li><a href="http://github.com/okfn/gdocs2web">Repo</a></li>
@@ -71,6 +70,9 @@
 
   </div> <!-- /page.home -->
   <div class="page view">
+    <h2>
+      Loading data <img src="http://assets.okfn.org/images/icons/ajaxload-circle.gif" alt="loading" />
+    </h2>
   </div> <!-- /page.view -->
 
   <footer>
@@ -89,7 +91,10 @@
 </div><!-- /content -->
 </div><!-- /container -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="vendor/jquery/1.7.1/jquery.js"></script>
+<script src="vendor/recline/vendor/underscore/1.4.2/underscore.js"></script>
+<script src="vendor/mustache/0.5.0-dev/mustache.js"></script>
+<script src="vendor/recline/src/backend.gdocs.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

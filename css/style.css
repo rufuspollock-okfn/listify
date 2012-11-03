@@ -44,3 +44,28 @@ footer {
 .gdocs-url {
   width: 80%;
 }
+
+/*************************************************
+  * Demo
+  ************************************************/
+
+.booksection {
+  margin-bottom: 30px;
+}
+.booksection #cover {
+  float: left;
+  position: relative;
+  width: 140px;
+  height: 184px;
+  margin-right: 20px;
+  outline: 3px solid white;
+}
+.booksection p.description {
+  height: 70px;
+  padding-bottom: 18px;
+  overflow: hidden;
+}
+.booksection p.level {
+  color: grey;
+}
+
