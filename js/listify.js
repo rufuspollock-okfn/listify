@@ -16,35 +16,63 @@ Listify.App = function(options) {
 
 var my = {
   options: options,
-  dataStore: null
+  dataStore: null,
+  queryResults: [],
+  $el: $(options.el)
 };
-my.$el = $(options.el);
 
 my.initialize = function($el) {
   my.$el.html(my.template);
+  // bind search actions etc
+  my.$el.find('.query input').keyup(function(e) {
+    my.query()
+  });
+
+  // load the data
   recline.Backend.GDocs.fetch({url: my.options.url}).done(function(data) {
+    my.$el.find('.loading').hide();
     my.metadata = data.metadata;
-    my.dataStore = data;
+    my.dataStore = new recline.Backend.Memory.Store(data.records, data.fields);
+    my.queryResults = my.dataStore.data;
     my.render();
   });
 };
 
+my.query = function() {
+  var q = my.$el.find('.query input').val();
+  var queryObj = {};
+  if (q) {
+    queryObj.q = q;
+  }
+  my.dataStore.query(queryObj).done(function(results) {
+    my.queryResults = results.hits;
+    my.render();
+  });
+}
+
 my.render = function() {
+    console.log(my.queryResults);
   var results = Mustache.render(templates['books'], {
-    records: my.dataStore.records
+    records: my.queryResults
   });
   my.$el.find('.results').html(results);
-  my.$el.find('.total span').text(my.dataStore.records.length);
+  my.$el.find('.total .matching').text(my.queryResults.length);
+  my.$el.find('.total .allofthem').text(my.dataStore.data.length);
 };
 
 my.template = ' \
   <div class="listify"> \
+    <div class="loading"> \
+      <h2> \
+        Loading data <img src="http://assets.okfn.org/images/icons/ajaxload-circle.gif" alt="loading" /> \
+      </h2> \
+    </div> \
     <div class="controls"> \
       <div class="query"> \
-        <input type="text" name="q" value="" /> \
+        <input type="text" name="q" value="" placeholder="Filter ..." /> \
       </div> \
     </div> \
-    <div class="total"><span></span> records found</div> \
+    <div class="total"><span class="matching"></span> matching (out of <span class="allofthem"></span>)</div> \
     <div class="body"> \
       <div class="results"></div> \
     </div> \
