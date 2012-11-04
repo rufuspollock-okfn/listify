@@ -49,9 +49,31 @@ footer {
   * Listify
   ************************************************/
 
-.record {
+.listify .record {
   border-bottom: #eee 1px solid;
   padding: 5px;
+}
+
+.listify .controls {
+  float: left;
+}
+
+.listify .controls input {
+  width: 250px;
+}
+
+.listify .body {
+  clear: both;
+}
+
+.listify .total {
+  line-height: 30px;
+  font-size: 16px;
+  margin-left: 280px;
+}
+
+.listify .total .matching {
+  font-weight: bold;
 }
 
 /*************************************************
