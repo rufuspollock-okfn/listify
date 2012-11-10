@@ -1,27 +1,24 @@
 $(document).ready(function() {
-  var qs = window.location.search;
-  var parsed = parseQueryString(qs);
-  if (parsed.url) {
-    Listify.show(parsed.url);
-  } else {
-    doHomePage();
-  }
+  doHomePage();
 });
-
-var switchView = function(name, title) {
-  $('.page').hide();
-  $('.page.' + name).show();
-}
 
 var doHomePage = function() {
   setupGenerator();
-  switchView('home');
 }
 
 var setupGenerator = function() {
   $('.gdocs-url').keyup(function(e) {
     var url = $('.gdocs-url').val();
-    var $textarea = $('.copy-this').val(url);
+    var embedUrl = window.location.href.replace('/index.html', '') + 'embed.html?url=' + url;
+    var $iframe = '<iframe width="100%" height="500px" frameborder="0" src="' + embedUrl + '"></iframe>';
+    $('.copy-this').val($iframe);
+    console.log($iframe);
+    $('.preview').html($iframe);
+  });
+
+  // prevent form submissions ...
+  $('.generator').submit(function(e) {
+    e.preventDefault();
   });
 };
 
@@ -39,26 +36,3 @@ var demoShow = function() {
   });
 };
 
-
-// --------------------------------------------------------
-// ## Utilities
-
-parseQueryString = function(q) {
-  if (!q) {
-    return {};
-  }
-  var urlParams = {},
-    e, d = function (s) {
-      return unescape(s.replace(/\+/g, " "));
-    },
-    r = /([^&=]+)=?([^&]*)/g;
-
-  if (q && q.length && q[0] === '?') {
-    q = q.slice(1);
-  }
-  while (e = r.exec(q)) {
-    // TODO: have values be array as query string allow repetition of keys
-    urlParams[d(e[1])] = d(e[2]);
-  }
-  return urlParams;
-};

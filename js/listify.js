@@ -3,15 +3,6 @@ var Listify = {};
 
 (function($) {
 
-Listify.show = function(url) {
-  var $el = $('.page.view');
-  switchView('view');
-  var app = new Listify.App({
-    url: url,
-    el: $el
-  });
-};
-
 Listify.App = function(options) {
 
 var my = {
