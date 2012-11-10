@@ -27,7 +27,7 @@
         <li><a href="?url=https://docs.google.com/spreadsheet/ccc?key=0Aon3JiuouxLUdFRBbUYxR3B6UDhLZEplN0VPQzNqN0E">Demo</a></li>
       </ul>
       <ul class="nav pull-right">
-        <li><a href="http://github.com/okfn/gdocs2web">Repo</a></li>
+        <li><a href="http://github.com/okfn/listify/issues">Report Issues</a></li>
       </ul>
     </div>
   </div>
@@ -43,30 +43,36 @@
         </h1>
     </div>
 
-    <h3>1. Create a Spreadsheet</h3>
-    <p>Create a google spreadsheet. Here's a <a href="https://docs.google.com/spreadsheet/ccc?key=0Aon3JiuouxLUdGVwNF93NkpCeTctVGNTcmluWmJVdmc">simple
-      template</a> which you can copy to get you started but you can use any spreadsheet &ndash; the only requirements is a
+    <h2>1. Get your Spreadsheet (or create one)</h2>
+    <p>Here's a <a href="https://docs.google.com/spreadsheet/ccc?key=0Aon3JiuouxLUdGVwNF93NkpCeTctVGNTcmluWmJVdmc">simple
+      template</a> which you can copy if you need to create one but you can use any spreadsheet &ndash; the only requirements is a
     <strong>single header row</strong> at the very top of the sheet.</p>
     <p>You also must <strong>publish your spreadsheet</strong> (File menu then
     Publish to the Web).</p>
 
-    <h3>2. Embed Listify in your Website</h3>
+    <hr />
+
+    <h2>2. Listify that Spreadsheet!</h2>
+    <h4>Paste spreadsheet url here</h4>
     <form class="generator">
-      <label for="gdocs-url">Paste your spreadsheet url here</label>
-      <input type="text" name="gdocs-url" class="gdocs-url" placeholder="https://docs.google.com/..." />
+      <input type="text" name="gdocs-url" class="gdocs-url span6" placeholder="https://docs.google.com/..." />
     </form>
-    <p>Then copy and paste the following piece of HTML in your webpage</p>
-    <textarea class="copy-this"></textarea>
+    <h4>Preview</h4>
+    <div class="preview"><em>Waiting for your spreadsheet!</em></div>
 
-    <div class="preview"></div>
-    
+    <hr />
 
-    <h3>3. Customize &ndash; optional</h3>
-    <p>You can customize the process in several ways.</p>
+    <h2>3. Embed or Link</h2>
+    <div class="row">
+      <div class="span6">
+        <h4>Embed in your website</h4>
+        <p>Copy and paste the following HTML into your webpage (NB: you can change the height attribute to get rid of scrollbars)</p>
+        <textarea class="copy-this"></textarea>
+      </div>
+      <div class="span6">
+      </div>
+    </div>
 
-    <h4>Search versus List</h4>
-
-    <h4>Customize the template for each item</h4>
   </div> <!-- /page.home -->
 
   <footer>
