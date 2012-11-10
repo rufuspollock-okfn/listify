@@ -1,8 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700);
+
 html, body {
   background-color: #eee;
 }
 body {
   padding-top: 40px;
+  font-family: 'PT Sans',Helvetica,Arial,sans-serif;
+  font-size: 15px;
 }
 
 .content {
