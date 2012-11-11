@@ -18,10 +18,14 @@ var setupGenerator = function() {
 var onGdocsUrlChange = function(url) {
   // may have come from gdocs picker ...
   $('.gdocs-url').val(url);
-  var embedUrl = window.location.href.replace('/index.html', '') + 'embed.html?url=' + url;
+  var base = window.location.href.replace(/\/index.html.*/, '') 
+  var options = '?url=' + url;
+  var embedUrl = base + 'embed.html' + options;
+  var viewUrl = base + 'view/' + options;
   var $iframe = '<iframe width="100%" height="500px" frameborder="0" src="' + embedUrl + '"></iframe>';
   $('.copy-this').val($iframe);
   $('.preview').html($iframe);
+  $('.view-url').attr('href', viewUrl);
 }
 
 var setupGdocsPicker = function() {

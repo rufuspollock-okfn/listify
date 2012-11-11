@@ -23,9 +23,11 @@ my.initialize = function($el) {
   recline.Backend.GDocs.fetch({url: my.options.url}).done(function(data) {
     my.$el.find('.loading').hide();
     my.metadata = data.metadata;
+    my.metadata.url = my.options.url;
     my.dataStore = new recline.Backend.Memory.Store(data.records, data.fields);
     my.queryResults = my.dataStore.data;
     my.render();
+    $(document).trigger('listify:data:loaded');
   });
 };
 
@@ -42,7 +44,6 @@ my.query = function() {
 }
 
 my.render = function() {
-    console.log(my.queryResults);
   var results = Mustache.render(templates['books'], {
     records: my.queryResults
   });
@@ -111,4 +112,24 @@ return my;
 
 }(jQuery));
 
+// convenience utility
+parseQueryString = function(q) {
+  if (!q) {
+    return {};
+  }
+  var urlParams = {},
+    e, d = function (s) {
+      return unescape(s.replace(/\+/g, " "));
+    },
+    r = /([^&=]+)=?([^&]*)/g;
+
+  if (q && q.length && q[0] === '?') {
+    q = q.slice(1);
+  }
+  while (e = r.exec(q)) {
+    // TODO: have values be array as query string allow repetition of keys
+    urlParams[d(e[1])] = d(e[2]);
+  }
+  return urlParams;
+};
 
