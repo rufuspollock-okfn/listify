@@ -94,11 +94,15 @@ var templates = {
     {{#records}}  \
      <div class="span5 record"> \
       <div class="cover" style="background: url(\'{{imageurl}}\') no-repeat center;"></div> \
-      <h2>{{title}}</h2> \
-      <h3><a href="{{authorurl}}" target="_blank">{{author}}</a></h3> \
-      <p class="level">{{type}}</p> \
-      <p class="description">{{description}}</p> \
-      <p><a class="btn" href="{{url}}">OPEN</a></p> \
+      <h2><a href="{{url}}" target="_blank">{{title}}</a></h2> \
+      <h3> \
+        {{#author}} \
+        <a href="{{authorurl}}" target="_blank">by {{author}}</a> \
+        {{/author}} \
+        &nbsp; \
+      </h3> \
+      <p class="type">{{type}}</p> \
+      <p class="description" title="{{description}}">{{description}}</p> \
     </div> \
     {{/records}} \
    </div> \

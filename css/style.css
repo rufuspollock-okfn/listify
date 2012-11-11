@@ -94,12 +94,13 @@ footer {
 
 .booky .record {
   margin-bottom: 30px;
+  height: 230px;
 }
 .booky .record .cover {
   float: left;
   position: relative;
-  width: 150px;
-  height: 184px;
+  width: 190px;
+  height: 204px;
   margin-right: 20px;
   outline: 3px solid white;
   -webkit-background-size: cover;
@@ -107,13 +108,14 @@ footer {
   background-size: cover;
 }
 .booky .record p.description {
-  height: 70px;
+  height: 120px;
   padding-bottom: 18px;
   overflow: hidden;
   font-size: 85%;
 }
-.booky .record p.level {
+.booky .record p.type {
   color: grey;
+  font-size: 90%;
 }
 
 .booky h2,
@@ -124,9 +126,13 @@ footer {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .booky h3 {
-  line-height: 13px;
+  line-height: 11px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .booky h3 a {
   text-decoration: underline;
