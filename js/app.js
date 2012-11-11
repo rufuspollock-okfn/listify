@@ -26,7 +26,7 @@ var setupGenerator = function() {
 var onGdocsUrlChange = function(url) {
   // may have come from gdocs picker ...
   $('.gdocs-url').val(url);
-  var base = window.location.href.replace(/\/index.html.*/, '') 
+  var base = window.location.origin + window.location.pathname;
   var options = '?url=' + url;
   var embedUrl = base + 'embed.html' + options;
   var viewUrl = base + 'view/' + options;
