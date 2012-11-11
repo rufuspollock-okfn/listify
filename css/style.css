@@ -101,11 +101,14 @@ footer {
   position: relative;
   width: 190px;
   height: 204px;
-  margin-right: 20px;
   outline: 3px solid white;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+}
+
+.booky .rhs {
+  margin-left: 210px;
 }
 .booky .record p.description {
   height: 120px;

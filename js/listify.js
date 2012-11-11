@@ -91,18 +91,22 @@ my.renderGeneric = function(record) {
 var templates = {
   books: ' \
     <div class="row booky"> \
-    {{#records}}  \
-     <div class="span5 record"> \
-      <div class="cover" style="background: url(\'{{imageurl}}\') no-repeat center;"></div> \
-      <h2><a href="{{url}}" target="_blank">{{title}}</a></h2> \
-      <h3> \
-        {{#author}} \
-        <a href="{{authorurl}}" target="_blank">by {{author}}</a> \
-        {{/author}} \
-        &nbsp; \
-      </h3> \
-      <p class="type">{{type}}</p> \
-      <p class="description" title="{{description}}">{{description}}</p> \
+    {{#records}} \
+     <div class="span6"> \
+       <div class="record"> \
+        <div class="cover" style="background: url(\'{{imageurl}}\') no-repeat center;"></div> \
+        <div class="rhs"> \
+          <h2><a href="{{url}}" target="_blank">{{title}}</a></h2> \
+          <h3> \
+            {{#author}} \
+            <a href="{{authorurl}}" target="_blank">by {{author}}</a> \
+            {{/author}} \
+            &nbsp; \
+          </h3> \
+          <p class="type">{{type}}</p> \
+          <p class="description" title="{{description}}">{{description}}</p> \
+        </div> \
+      </div> \
     </div> \
     {{/records}} \
    </div> \
