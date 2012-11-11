@@ -4,8 +4,8 @@ html, body {
   background-color: #eee;
 }
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-family: 'PT Sans',Helvetica,Arial,sans-serif;
   font-size: 15px;
 }
@@ -40,6 +40,17 @@ footer {
 /*************************************************
   * Home page
   ************************************************/
+
+.home .page-header img {
+  margin-top: 15px;
+  margin-right: 5px;
+  height: 32px;
+  float: left;
+}
+
+.page-header small {
+  text-shadow: 0 1px 0 #ffffff;
+}
 
 .copy-this {
   width: 100%;
