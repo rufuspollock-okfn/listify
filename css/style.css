@@ -52,6 +52,21 @@ footer {
   text-shadow: 0 1px 0 #ffffff;
 }
 
+.example .source img {
+  margin-top: -5px;
+  max-height: 300px;
+}
+
+.use-it {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.use-it a {
+  font-size: 30px;
+}
+
 .copy-this {
   width: 100%;
   height: 60px;

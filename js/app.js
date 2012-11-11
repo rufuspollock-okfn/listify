@@ -1,6 +1,14 @@
 $(document).ready(function() {
   setupGenerator();
   setupGdocsPicker();
+
+  $('.use-it a').click(function(e) {
+    $('html,body').animate({
+      scrollTop: $('#make-one').offset().top
+      },
+      'slow'
+    );
+  });
 });
 
 var setupGenerator = function() {
