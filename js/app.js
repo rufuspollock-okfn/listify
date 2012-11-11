@@ -1,19 +1,12 @@
 $(document).ready(function() {
-  doHomePage();
-});
-
-var doHomePage = function() {
   setupGenerator();
-}
+  setupGdocsPicker();
+});
 
 var setupGenerator = function() {
   $('.gdocs-url').keyup(function(e) {
     var url = $('.gdocs-url').val();
-    var embedUrl = window.location.href.replace('/index.html', '') + 'embed.html?url=' + url;
-    var $iframe = '<iframe width="100%" height="500px" frameborder="0" src="' + embedUrl + '"></iframe>';
-    $('.copy-this').val($iframe);
-    console.log($iframe);
-    $('.preview').html($iframe);
+    onGdocsUrlChange(url);
   });
 
   // prevent form submissions ...
@@ -22,3 +15,34 @@ var setupGenerator = function() {
   });
 };
 
+var onGdocsUrlChange = function(url) {
+  // may have come from gdocs picker ...
+  $('.gdocs-url').val(url);
+  var embedUrl = window.location.href.replace('/index.html', '') + 'embed.html?url=' + url;
+  var $iframe = '<iframe width="100%" height="500px" frameborder="0" src="' + embedUrl + '"></iframe>';
+  $('.copy-this').val($iframe);
+  $('.preview').html($iframe);
+}
+
+var setupGdocsPicker = function() {
+  $('.search-gdocs').click(function(e) {
+    e.preventDefault();
+    // Create and render a Picker object for searching images.
+    var picker = new google.picker.PickerBuilder()
+      .disableFeature(google.picker.Feature.MULTISELECT_ENABLED)
+      .addView(google.picker.ViewId.SPREADSHEETS )
+      .setCallback(pickerCallback)
+      .build();
+    picker.setVisible(true);
+  });
+
+  // A simple callback implementation.
+  function pickerCallback(data) {
+    var url = 'nothing';
+    if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+      var doc = data[google.picker.Response.DOCUMENTS][0];
+      url = doc[google.picker.Document.URL];
+      onGdocsUrlChange(url);
+    }
+  }
+}
