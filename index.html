@@ -38,26 +38,41 @@
   <div class="page home">
     <div class="page-header">
       <h1>Listify
-        <small>Take a Google spreadsheet and turn it into a beautiful, searchable listing
-          on your website - embed in seconds into Wordpress, HTML etc</small>
+        <small>Turn a Google spreadsheet into a beautiful, searchable listing
+          in seconds</small>
         </h1>
     </div>
 
-    <h2>1. Get your Spreadsheet (or create one)</h2>
-    <p>Here's a <a href="https://docs.google.com/spreadsheet/ccc?key=0Aon3JiuouxLUdGVwNF93NkpCeTctVGNTcmluWmJVdmc">simple
-      template</a> which you can copy if you need to create one but you can use any spreadsheet &ndash; the only requirements is a
-    <strong>single header row</strong> at the very top of the sheet.</p>
-    <p>You also must <strong>publish your spreadsheet</strong> (File menu then
-    Publish to the Web).</p>
+    <h2>1. Select your Spreadsheet (or create one)</h2>
+    <div class="row">
+      <div class="span7">
+        <div class="alert">
+          <p>For Listify to work the spreadsheet <strong>must</strong>:
+          <ul>
+            <li>Be <strong>"published"</strong>. To "publish" a spreadsheet go to File
+            menu -&gt; Publish to the Web.</li>
+            <li>Have a <strong>single header row</strong> at the very top of the sheet.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span7">
+        <h4><a href="#" class="search-gdocs">Select Spreadsheet in Google Docs</a> (or paste a url directly)</h4>
+        <form class="generator">
+          <input type="text" name="gdocs-url" class="gdocs-url span6" placeholder="https://docs.google.com/..." />
+        </form>
+      </div>
+      <div class="span5">
+        <h4>Creating a spreadsheet</h4>
+        <p>Here's a <a href="https://docs.google.com/spreadsheet/ccc?key=0Aon3JiuouxLUdGVwNF93NkpCeTctVGNTcmluWmJVdmc">simple
+          template</a> which you can copy if you need to.</p>
+      </div>
+    </div>
 
     <hr />
 
-    <h2>2. Listify that Spreadsheet!</h2>
-    <h4><a href="#" class="search-gdocs">Search in Google Docs</a> (or paste the url directly)</h4>
-    <form class="generator">
-      <input type="text" name="gdocs-url" class="gdocs-url span6" placeholder="https://docs.google.com/..." />
-    </form>
-    <h4>Preview</h4>
+    <h2>2. Preview</h2>
     <div class="preview"><em>Waiting for your spreadsheet!</em></div>
 
     <hr />
