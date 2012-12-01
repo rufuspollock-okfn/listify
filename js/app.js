@@ -26,8 +26,11 @@ var setupGenerator = function() {
 var onGdocsUrlChange = function(url) {
   // may have come from gdocs picker ...
   $('.gdocs-url').val(url);
-  var base = window.location.origin + window.location.pathname;
-  var options = '?url=' + url;
+  // window.location.origin does not exist in firefox
+  // var base = window.location.origin + window.location.pathname;
+  // make sure we strip any query parameters or #hash
+  var base = [location.protocol, '//', location.host, location.pathname].join('');
+  var options = '?url=' + encodeURIComponent(url);
   var embedUrl = base + 'embed.html' + options;
   var viewUrl = base + 'view/' + options;
   var $iframe = '<iframe width="100%" height="500px" frameborder="0" src="' + embedUrl + '"></iframe>';
