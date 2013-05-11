@@ -3,7 +3,18 @@ var Listify = {};
 
 (function($) {
 
-Listify.App = function(options) {
+/**
+  Create a Listify listing
+
+  var listify = Listify.App({
+    // element to attach to (or jquery selector for that element)
+    el: #my-element
+    url: google spreadsheet url
+    // optional
+    template: mustache template to use for rendering
+  });
+  */
+Listify.App = function(options, initCallback) {
 
 var my = {
   options: options,
@@ -12,8 +23,33 @@ var my = {
   $el: $(options.el)
 };
 
-my.initialize = function($el) {
-  my.$el.html(my.template);
+if (!my.options.template) {
+  my.options.template = ' \
+    <div class="row booky"> \
+    {{#records}} \
+     <div class="span6"> \
+       <div class="record"> \
+        <div class="cover" style="background: url(\'{{imageurl}}\') no-repeat center;"></div> \
+        <div class="rhs"> \
+          <h2><a href="{{url}}" target="_blank">{{title}}</a></h2> \
+          <h3> \
+            {{#author}} \
+            <a href="{{authorurl}}" target="_blank">by {{author}}</a> \
+            {{/author}} \
+            &nbsp; \
+          </h3> \
+          <p class="type">{{type}}</p> \
+          <p class="description" title="{{description}}">{{description}}</p> \
+        </div> \
+      </div> \
+    </div> \
+    {{/records}} \
+   </div> \
+   '
+}
+
+my.initialize = function() {
+  my.$el.html(my.templateOuter);
   // bind search actions etc
   my.$el.find('.query input').keyup(function(e) {
     my.query()
@@ -27,6 +63,7 @@ my.initialize = function($el) {
     my.dataStore = new recline.Backend.Memory.Store(data.records, data.fields);
     my.queryResults = my.dataStore.data;
     my.render();
+    initCallback(null);
     $(document).trigger('listify:data:loaded');
   });
 };
@@ -44,7 +81,7 @@ my.query = function() {
 }
 
 my.render = function() {
-  var results = Mustache.render(templates['books'], {
+  var results = Mustache.render(my.options.template, {
     records: my.queryResults
   });
   my.$el.find('.results').html(results);
@@ -52,7 +89,7 @@ my.render = function() {
   my.$el.find('.total .allofthem').text(my.dataStore.data.length);
 };
 
-my.template = ' \
+my.templateOuter = ' \
   <div class="listify"> \
     <div class="loading"> \
       <h2> \
@@ -86,31 +123,6 @@ my.renderGeneric = function(record) {
   return Mustache.render(template, {
     data: data
   });
-}
-
-var templates = {
-  books: ' \
-    <div class="row booky"> \
-    {{#records}} \
-     <div class="span6"> \
-       <div class="record"> \
-        <div class="cover" style="background: url(\'{{imageurl}}\') no-repeat center;"></div> \
-        <div class="rhs"> \
-          <h2><a href="{{url}}" target="_blank">{{title}}</a></h2> \
-          <h3> \
-            {{#author}} \
-            <a href="{{authorurl}}" target="_blank">by {{author}}</a> \
-            {{/author}} \
-            &nbsp; \
-          </h3> \
-          <p class="type">{{type}}</p> \
-          <p class="description" title="{{description}}">{{description}}</p> \
-        </div> \
-      </div> \
-    </div> \
-    {{/records}} \
-   </div> \
-   '
 }
 
 my.initialize();
