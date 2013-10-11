@@ -25,9 +25,8 @@ var my = {
 
 if (!my.options.template) {
   my.options.template = ' \
-    <div class="row booky"> \
+    <div class="booky"> \
     {{#records}} \
-     <div class="span6"> \
        <div class="record"> \
         <div class="cover" style="background: url(\'{{imageurl}}\') no-repeat center;"></div> \
         <div class="rhs"> \
@@ -42,7 +41,6 @@ if (!my.options.template) {
           <p class="description" title="{{description}}">{{description}}</p> \
         </div> \
       </div> \
-    </div> \
     {{/records}} \
    </div> \
    '
