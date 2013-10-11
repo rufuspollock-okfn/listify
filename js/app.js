@@ -30,6 +30,7 @@ var onGdocsUrlChange = function(url) {
   // var base = window.location.origin + window.location.pathname;
   // make sure we strip any query parameters or #hash
   var base = [location.protocol, '//', location.host, location.pathname].join('');
+  base=base.replace("index.html","");  
   var options = '?url=' + encodeURIComponent(url);
   var embedUrl = base + 'embed.html' + options;
   var viewUrl = base + 'view/' + options;
