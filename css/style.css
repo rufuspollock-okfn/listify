@@ -155,9 +155,6 @@ body.embed .container {
   text-transform: uppercase;
   font: bold 16px 'PT Sans Narrow', Helvetica, Arial, sans-serif;
   line-height: 18px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin-top: 0;
   margin-bottom: 0;
 }
