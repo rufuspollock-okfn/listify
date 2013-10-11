@@ -122,8 +122,9 @@ body.embed .container {
   ************************************************/
 
 .booky .record {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   height: 230px;
+  overflow: hidden;
 }
 .booky .record .cover {
   float: left;
@@ -140,7 +141,7 @@ body.embed .container {
   margin-left: 210px;
 }
 .booky .record p.description {
-  height: 120px;
+  min-height: 120px;
   padding-bottom: 18px;
   overflow: hidden;
   font-size: 85%;
