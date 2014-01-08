@@ -79,14 +79,14 @@ this.recline.Backend.GDocs = this.recline.Backend.GDocs || {};
   // :return: tabular data object (hash with keys: field and data).
   // 
   // Issues: seems google docs return columns in rows in random order and not even sure whether consistent across rows.
-  my.parseData = function(gdocsSpreadsheet, options) {
+  my.parseData = function(gdocsWorksheet, options) {
     var options  = options || {};
     var colTypes = options.colTypes || {};
     var results = {
       fields : [],
       records: []
     };
-    var entries = gdocsSpreadsheet.feed.entry || [];
+    var entries = gdocsWorksheet.feed.entry || [];
     var key;
     var colName;
     // percentage values (e.g. 23.3%)
@@ -123,7 +123,7 @@ this.recline.Backend.GDocs = this.recline.Backend.GDocs || {};
       return row;
     });
 
-    results.worksheetTitle = gdocsSpreadsheet.feed.title.$t;
+    results.worksheetTitle = gdocsWorksheet.feed.title.$t;
     return results;
   };
 
