@@ -91,7 +91,7 @@ my.templateOuter = ' \
   <div class="listify"> \
     <div class="loading"> \
       <h2> \
-        Loading data <img src="http://assets.okfn.org/images/icons/ajaxload-circle.gif" alt="loading" /> \
+        Loading data <img src="https://assets.okfn.org/images/icons/ajaxload-circle.gif" alt="loading" /> \
       </h2> \
     </div> \
     <div class="controls"> \
